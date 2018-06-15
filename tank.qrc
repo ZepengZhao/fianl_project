@@ -1,0 +1,73 @@
+<RCC>
+    <qresource prefix="/">
+        <file>+¦+¦ (2) victory.png</file>
+        <file>+¦+¦ gameover.png</file>
+        <file>--+¿ Windows++-+-+-±.bmp</file>
+        <file>0.gif</file>
+        <file>1.gif</file>
+        <file>2.gif</file>
+        <file>3.gif</file>
+        <file>4.gif</file>
+        <file>5.gif</file>
+        <file>6.gif</file>
+        <file>7.gif</file>
+        <file>8.gif</file>
+        <file>9.gif</file>
+        <file>10.gif</file>
+        <file>backwall.bmp</file>
+        <file>BG.gif</file>
+        <file>btD.gif</file>
+        <file>btL.gif</file>
+        <file>btLD.gif</file>
+        <file>btLU.gif</file>
+        <file>btR.gif</file>
+        <file>btRD.gif</file>
+        <file>btRU.gif</file>
+        <file>btU.gif</file>
+        <file>chicken.png</file>
+        <file>etD.gif</file>
+        <file>etL.gif</file>
+        <file>etLD.gif</file>
+        <file>etLU.gif</file>
+        <file>etR.gif</file>
+        <file>etRD.gif</file>
+        <file>etRU.gif</file>
+        <file>etU.gif</file>
+        <file>gameover.png</file>
+        <file>grenade.png</file>
+        <file>logo.png</file>
+        <file>love.png</file>
+        <file>missileD.gif</file>
+        <file>missileL.gif</file>
+        <file>missileLD.gif</file>
+        <file>missileLU.gif</file>
+        <file>missileR.gif</file>
+        <file>missileRD.gif</file>
+        <file>missileRU.gif</file>
+        <file>missileU.gif</file>
+        <file>tank.png</file>
+        <file>tankD.gif</file>
+        <file>tankL.gif</file>
+        <file>tankLD.gif</file>
+        <file>tankLU.gif</file>
+        <file>tankR.gif</file>
+        <file>tankRD.gif</file>
+        <file>tankRU.gif</file>
+        <file>tanks.bmp</file>
+        <file>tankU.gif</file>
+        <file>tD.gif</file>
+        <file>thunder.png</file>
+        <file>tL.gif</file>
+        <file>tLD.gif</file>
+        <file>tLU.gif</file>
+        <file>tR.gif</file>
+        <file>tRD.gif</file>
+        <file>tRU.gif</file>
+        <file>tU.gif</file>
+        <file>victory.png</file>
+        <file>wall0.bmp</file>
+        <file>wall1.bmp</file>
+        <file>wall2.bmp</file>
+        <file>wall3.bmp</file>
+    </qresource>
+</RCC>

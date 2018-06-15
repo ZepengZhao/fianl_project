@@ -16,7 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
     victory=false;
     Tank::init();
     setWindowTitle(tr("̹tank"));
-    setStyleSheet("C:/Users/gui/Documents/final_proj/BG.gif");
     setFixedSize(GAME_WIDTH,GAME_HEIGHT);
     move(100,100);
     AllObject();
@@ -36,12 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     startTimer(30);
 }
-/*
-MainWindow::~MainWindow()
-{
 
-}
-*/
 void MainWindow::paintEvent(QPaintEvent *)
 {
     QPainter p(this);
@@ -54,9 +48,6 @@ void MainWindow::paintEvent(QPaintEvent *)
         mytank->drawTank(p);
         mytank->TankHitWalls(myWall);
 
-       // p.drawText(10,10,tr("ը��������")+ QString::number(missile.size()));
-      //  p.drawText(10,30,tr("��̹������")+ QString::number(etanks.size()));
-      //  p.drawText(10,50,tr("ʣ�����У�")+ QString::number(mytank->count));
         for(int i=0;i<missile.size();i++)
         {
             missile[i]->hitTanks(etanks);
@@ -175,7 +166,6 @@ void MainWindow::AllObject()
 
     }
 }
-
 
 void MainWindow::pressStart()
 {

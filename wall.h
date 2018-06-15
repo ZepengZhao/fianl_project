@@ -10,7 +10,7 @@ class Wall
 public:
     Wall(int x,int y,int w,int h,bool ironWall,MainWindow* tc,int liveValue);
     void drawWall(QPainter &p);
-    inline QRect getRect(){return QRect(x,y,w,h);}//»ńµĂ×ÔÉíĎŕ˝»µÄľŘĐÎ
+    inline QRect getRect(){return QRect(x,y,w,h);}
 
     int x,y,w,h;
     bool ironWall;

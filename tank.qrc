@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/images">
         <file>+¦+¦ (2) victory.png</file>
         <file>+¦+¦ gameover.png</file>
         <file>--+¿ Windows++-+-+-±.bmp</file>
@@ -35,7 +35,7 @@
         <file>etU.gif</file>
         <file>gameover.png</file>
         <file>grenade.png</file>
-        <file>logo.png</file>
+        <file>logo.gif</file>
         <file>love.png</file>
         <file>missileD.gif</file>
         <file>missileL.gif</file>

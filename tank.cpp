@@ -79,7 +79,7 @@ void Tank::keyPress(int key)
             {
                 tc->step=0;
                 tc->start=!tc->start;
-                if(!(tc->start))//ФЭНЈ/јМРш
+                if(!(tc->start))
                 {
                     tc->button[1]->setText(QObject::tr("јМРшУОП·"));
                 }
@@ -88,7 +88,7 @@ void Tank::keyPress(int key)
             }
         case Qt::Key_F1:
             {
-                //ЦШЖфУОП·
+
                 while(tc->missile.size())
                     tc->missile.removeOne(tc->missile[0]);
                 while(tc->etanks.size())
@@ -187,18 +187,18 @@ void  Tank::fire(Dir tdir)
     Missile* m=new Missile(mx,my,mw,mh,tdir,tc,good);
     tc->missile.push_back(m);
 }
-void  Tank::superfire()//іЇ°Лёц·ЅПтїЄ»р
+void  Tank::superfire()
 {
     for(int i=0;i<8;i++)
         fire(Dir(i));
 }
 
-bool Tank::TankHitWall(Wall* w) //јмІвМ№їЛєНЗЅ±ЪКЗ·сЕцЧІ
+bool Tank::TankHitWall(Wall* w)
 {
 
     if(live&&getRect().intersects(w->getRect()))
     {
-        x=xtemp;//»ШµЅЙПТ»ґОµДО»ЦГ
+        x=xtemp;
         y=ytemp;
         return true;
     }
@@ -215,42 +215,42 @@ void Tank::TankHitWalls(QList<Wall*> ws)
 
 void Tank::init()
 {
-    tankImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/tU.gif"));
-    tankImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/tD.gif"));
-    tankImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/tL.gif"));
-    tankImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/tR.gif"));
-    tankImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/tLU.gif"));
-    tankImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/tLD.gif"));
-    tankImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/tRU.gif"));
-    tankImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/tRD.gif"));
+    tankImgs.push_back(QImage(":images/tU.gif"));
+    tankImgs.push_back(QImage(":images/tD.gif"));
+    tankImgs.push_back(QImage(":images/tL.gif"));
+    tankImgs.push_back(QImage(":images/tR.gif"));
+    tankImgs.push_back(QImage(":images/tLU.gif"));
+    tankImgs.push_back(QImage(":images/tLD.gif"));
+    tankImgs.push_back(QImage(":images/tRU.gif"));
+    tankImgs.push_back(QImage(":images/tRD.gif"));
 
-    Missile::missileImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/missileU.gif"));
-    Missile::missileImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/missileD.gif"));
-    Missile::missileImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/missileL.gif"));
-    Missile::missileImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/missileR.gif"));
-    Missile::missileImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/missileLU.gif"));
-    Missile::missileImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/missileLD.gif"));
-    Missile::missileImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/missileRU.gif"));
-    Missile::missileImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/missileRD.gif"));
+    Missile::missileImgs.push_back(QImage(":images/missileU.gif"));
+    Missile::missileImgs.push_back(QImage(":images/missileD.gif"));
+    Missile::missileImgs.push_back(QImage(":images/missileL.gif"));
+    Missile::missileImgs.push_back(QImage(":images/missileR.gif"));
+    Missile::missileImgs.push_back(QImage(":images/missileLU.gif"));
+    Missile::missileImgs.push_back(QImage(":images/missileLD.gif"));
+    Missile::missileImgs.push_back(QImage(":images/missileRU.gif"));
+    Missile::missileImgs.push_back(QImage(":images/missileRD.gif"));
 
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/0.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/1.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/2.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/3.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/4.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/5.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/6.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/7.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/8.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/9.gif"));
-    Explode::explodeImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/10.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/0.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/1.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/2.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/3.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/4.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/5.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/6.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/7.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/8.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/9.gif"));
+    Explode::explodeImgs.push_back(QImage(":images/10.gif"));
 
-    Wall::wallImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/wall0.bmp"));
-    Wall::wallImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/wall1.bmp"));
-    Wall::wallImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/wall2.bmp"));
-    Wall::wallImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/wall3.bmp"));
+    Wall::wallImgs.push_back(QImage(":images/wall0.bmp"));
+    Wall::wallImgs.push_back(QImage(":images/wall1.bmp"));
+    Wall::wallImgs.push_back(QImage(":images/wall2.bmp"));
+    Wall::wallImgs.push_back(QImage(":images/wall3.bmp"));
 
-    MainWindow::logoImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/logo.png"));
-    MainWindow::logoImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/gameover.png"));
-    MainWindow::logoImgs.push_back(QImage("C:/Users/gui/Documents/final_proj/victory.png"));
+    MainWindow::logoImgs.push_back(QImage(":images/logo.gif"));
+    MainWindow::logoImgs.push_back(QImage(":images/gameover.png"));
+    MainWindow::logoImgs.push_back(QImage(":images/victory.png"));
 }

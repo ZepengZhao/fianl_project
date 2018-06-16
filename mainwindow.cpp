@@ -147,12 +147,12 @@ void MainWindow::AllObject()
     for(int i=0;i<13;i++)
     {
         if(i==4)i=i+5;
-        Wall* w=new Wall(120+30*i,220,30,30,true,this,100);
+        Wall* w=new Wall(120+30*i,220,30,30,1,this,100);
         myWall.push_back(w);
     }
     for(int i=0;i<5;i++)
     {
-        Wall* w=new Wall(240+30*i,310,30,30,true,this,100);
+        Wall* w=new Wall(240+30*i,310,30,30,2,this,100);
         myWall.push_back(w);
     }
     for(int j=0;j<3;j++)
@@ -160,7 +160,7 @@ void MainWindow::AllObject()
         for(int i=0;i<5;i++)
         {
             if(j==2)i=4;
-            Wall* w=new Wall(240+30*i,390+30*j,30,30,false,this,100);
+            Wall* w=new Wall(240+30*i,390+30*j,30,30,0,this,100);
             myWall.push_back(w);
             if(j==1)i=i+3;
         }

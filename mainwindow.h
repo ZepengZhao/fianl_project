@@ -44,4 +44,4 @@ private slots:
 
 };
 
-#endif // TANKCLIENT_H
+#endif

@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     Tank::init();
     setWindowTitle(tr("̹tank"));
     setFixedSize(GAME_WIDTH,GAME_HEIGHT);
+
     move(100,100);
     AllObject();
 

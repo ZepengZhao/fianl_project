@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     gameover=false;
     victory=false;
     Tank::init();
-    setWindowTitle(tr("̹tank"));
+    setWindowTitle(tr("̹tank war"));
     setFixedSize(GAME_WIDTH,GAME_HEIGHT);
 
     move(100,100);

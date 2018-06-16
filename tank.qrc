@@ -12,14 +12,6 @@
         <file>9.gif</file>
         <file>10.gif</file>
         <file>gameover.png</file>
-        <file>missileD.gif</file>
-        <file>missileL.gif</file>
-        <file>missileLD.gif</file>
-        <file>missileLU.gif</file>
-        <file>missileR.gif</file>
-        <file>missileRD.gif</file>
-        <file>missileRU.gif</file>
-        <file>missileU.gif</file>
         <file>tD.gif</file>
         <file>tL.gif</file>
         <file>tLD.gif</file>
@@ -34,7 +26,6 @@
         <file>wall2.bmp</file>
         <file>wall3.bmp</file>
         <file>logo.jpg</file>
-        <file>InkedmissileD.gif</file>
         <file>dot.jpg</file>
     </qresource>
 </RCC>

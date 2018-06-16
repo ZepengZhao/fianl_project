@@ -16,11 +16,13 @@ Wall::Wall(int x,int y,int w,int h,int choose,MainWindow* tc,int liveValue)
 }
 void Wall::drawWall(QPainter &p)
 {
+
     if(!live)
     {
         tc->myWall.removeOne(this);
         return;
     }
+
     if(choose==1)
     {
         p.drawImage(x,y,Wall::wallImgs[1]);

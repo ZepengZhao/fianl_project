@@ -52,7 +52,6 @@ void Tank::drawTank(QPainter &p)
 
     p.setBrush(Qt::black);
     p.drawRect(x,y,33,5);
-    //if(this == mytank)
     p.setBrush(Qt::green);
     p.drawRect(x,y,liveValue/3,5);
 
@@ -72,7 +71,7 @@ void Tank::keyPress(int key)
 
         case Qt::Key_F2:
             {
-                tc->step=0;
+
                 tc->start=!tc->start;
                 if(!(tc->start))
                 {
@@ -192,7 +191,7 @@ void  Tank::fire(Dir tdir)
 bool Tank::TankHitWall(Wall* w)
 {
 
-    if(live&&getRect().intersects(w->getRect()))
+    if(live&&getRect().intersects(w->getRect())&&(w->choose==0||w->choose==1))
     {
         x=xtemp;
         y=ytemp;
@@ -204,7 +203,7 @@ void Tank::TankHitWalls(QList<Wall*> ws)
 {
     for(int i=0;i<ws.size();i++)
     {
-        if(TankHitWall(ws[i])&&(ws[i]->choose)==0)
+        if(TankHitWall(ws[i]))
             return;
     }
 }

@@ -1,5 +1,5 @@
-#ifndef TANKCLIENT_H
-#define TANKCLIENT_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QMainWindow>
 #include "tank.h"
@@ -23,8 +23,6 @@ public:
     void AllObject();
 
 
-    //static const int GAME_WIDTH=640;
-   // static const int GAME_HEIGHT=480;
 
     bool start;
     bool gameover,victory;
@@ -36,7 +34,7 @@ public:
     QList<QPushButton*> button;
 
     static QList<QImage> logoImgs;
-    int step;
+    //int step;
 
 private slots:
     void pressStart();

@@ -10,7 +10,6 @@ QList<QImage> MainWindow::logoImgs;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-   // step=0;
     start=false;
     gameover=false;
     victory=false;
@@ -34,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(button[1],SIGNAL(clicked()),this,SLOT(pressStart()));
     connect(button[2],SIGNAL(clicked()),this,SLOT(close()));
 
-    startTimer(40);
+    startTimer(30);
 }
 
 void MainWindow::paintEvent(QPaintEvent *)
@@ -46,8 +45,7 @@ void MainWindow::paintEvent(QPaintEvent *)
         {
             button[i]->hide();
         }
-        mytank->drawTank(p);
-        mytank->TankHitWalls(myWall);
+
 
         for(int i=0;i<missile.size();i++)
         {
@@ -56,9 +54,11 @@ void MainWindow::paintEvent(QPaintEvent *)
             missile[i]->hitWalls(myWall);
             missile[i]->drawMissile(p);
         }
+        mytank->TankHitWalls(myWall);
+        mytank->drawTank(p);
         for(int i=0;i<etanks.size();i++)
         {
-            etanks[i]->TankHitWalls(myWall);
+           etanks[i]->TankHitWalls(myWall);
             etanks[i]->drawTank(p);
         }
         for(int i=0;i<explodes.size();i++)
@@ -66,15 +66,16 @@ void MainWindow::paintEvent(QPaintEvent *)
 
             explodes[i]->drawExplode(p);
         }
+
         for(int i=0;i<myWall.size();i++)
         {
             myWall[i]->drawWall(p);
         }
-        if(myWall.size()==0||!mytank->live)
+
+        if(!mytank->live)
         {
             start=false;
             gameover=true;
-
         }
         if(etanks.size()==0)
         {
@@ -93,8 +94,8 @@ void MainWindow::paintEvent(QPaintEvent *)
         }
         else
         p.drawImage(70,150,MainWindow::logoImgs[0]);
-        step++;
-        if(step>=80)step=80;
+       // step++;
+       // if(step>=80)step=80;
         if(gameover||victory)
         {
             button[0]->show();
@@ -150,21 +151,32 @@ void MainWindow::AllObject()
         Wall* w=new Wall(120+30*i,220,30,30,1,this,100);
         myWall.push_back(w);
     }
-    for(int i=0;i<5;i++)
+    for(int i=1;i<20;i++)
     {
-        Wall* w=new Wall(240+30*i,310,30,30,2,this,100);
+        Wall* w=new Wall(30*i,310,30,30,2,this,100);
         myWall.push_back(w);
     }
-    for(int j=0;j<3;j++)
+    for(int i=0;i<18;i++)
     {
-        for(int i=0;i<5;i++)
-        {
-            if(j==2)i=4;
-            Wall* w=new Wall(240+30*i,390+30*j,30,30,0,this,100);
-            myWall.push_back(w);
-            if(j==1)i=i+3;
-        }
-
+        Wall* w=new Wall(0,30*i,30,30,2,this,100);
+        myWall.push_back(w);
+    }
+    for(int i=0;i<3;i++)
+    {
+        Wall* w=new Wall(240+30*i,390,30,30,0,this,100);
+        myWall.push_back(w);
+    }
+    {
+     Wall* w=new Wall(120,120,30,30,0,this,100);
+     myWall.push_back(w);
+    }
+    {
+     Wall* w=new Wall(380,120,30,30,0,this,100);
+     myWall.push_back(w);
+    }
+    {
+     Wall* w=new Wall(380,390,30,30,0,this,100);
+     myWall.push_back(w);
     }
 }
 

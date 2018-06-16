@@ -73,19 +73,19 @@ void Missile::hitTanks(QList<Tank*> ts)
 bool Missile::hitWall(Wall* w)
 {
 
-    if(live&&w->choose&&this->getRect().intersects(w->getRect()))
+    if(live&&w->choose==0&&this->getRect().intersects(w->getRect()))
     {
-        if(!good)
-        {
+
             live=false;
             return true;
-        }
+
     }
-    if(live&&!(w->choose)&&this->getRect().intersects(w->getRect()))
+
+    if(live&&w->choose==1&&this->getRect().intersects(w->getRect()))
     {
         live=false;
         w->liveValue-=25;
-        if(!good&&w->liveValue==0)
+        if(w->liveValue==0)
         {
             w->live=false;
             return true;

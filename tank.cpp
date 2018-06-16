@@ -52,8 +52,16 @@ void Tank::drawTank(QPainter &p)
 
     p.setBrush(Qt::black);
     p.drawRect(x,y,33,5);
-    p.setBrush(Qt::green);
-    p.drawRect(x,y,liveValue/3,5);
+    if(this->good)
+    {
+        p.setBrush(Qt::red);
+        p.drawRect(x,y,liveValue/3,5);
+    }
+    else
+    {
+        p.setBrush(Qt::green);
+        p.drawRect(x,y,liveValue/3,5);
+    }
 
     moveTank();
 }

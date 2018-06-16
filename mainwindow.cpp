@@ -26,14 +26,14 @@ MainWindow::MainWindow(QWidget *parent)
     button.push_back(startGame);
     QPushButton* exitGame=new QPushButton(tr("exit"),this);
     button.push_back(exitGame);
-    button[0]->setGeometry(75,100,130,50);
-    button[1]->setGeometry(255,100,130,50);
-    button[2]->setGeometry(435,100,130,50);
+    button[0]->setGeometry(75,360,130,50);
+    button[1]->setGeometry(255,360,130,50);
+    button[2]->setGeometry(435,360,130,50);
     connect(button[0],SIGNAL(clicked()),this,SLOT(pressRestart()));
     connect(button[1],SIGNAL(clicked()),this,SLOT(pressStart()));
     connect(button[2],SIGNAL(clicked()),this,SLOT(close()));
 
-    startTimer(30);
+    startTimer(25);
 }
 
 void MainWindow::paintEvent(QPaintEvent *)
@@ -93,9 +93,8 @@ void MainWindow::paintEvent(QPaintEvent *)
             p.drawImage(140,150,logoImgs[2]);
         }
         else
-        p.drawImage(70,150,MainWindow::logoImgs[0]);
-       // step++;
-       // if(step>=80)step=80;
+        p.drawImage(70,0,logoImgs[0]);
+
         if(gameover||victory)
         {
             button[0]->show();
@@ -139,7 +138,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *e)
 void MainWindow::AllObject()
 {
     mytank=new Tank(300,450,30,30,this,true,100);
-    for(int i=0;i<10;i++)
+    for(int i=0;i<8;i++)
     {
         Tank* t=new Tank(40+50*i,20,30,30,this,false,100);
         etanks.push_back(t);
@@ -147,13 +146,14 @@ void MainWindow::AllObject()
 
     for(int i=0;i<13;i++)
     {
-        if(i==4)i=i+5;
+        if(i==4)
+            i=i+5;
         Wall* w=new Wall(120+30*i,220,30,30,1,this,100);
         myWall.push_back(w);
     }
     for(int i=1;i<20;i++)
     {
-        Wall* w=new Wall(30*i,310,30,30,2,this,100);
+        Wall* w=new Wall(30*i,330,30,30,2,this,100);
         myWall.push_back(w);
     }
     for(int i=0;i<18;i++)
@@ -161,23 +161,45 @@ void MainWindow::AllObject()
         Wall* w=new Wall(0,30*i,30,30,2,this,100);
         myWall.push_back(w);
     }
-    for(int i=0;i<3;i++)
+    for(int i=0;i<5;i++)
     {
-        Wall* w=new Wall(240+30*i,390,30,30,0,this,100);
+        Wall* w=new Wall(210+30*i,390,30,30,0,this,100);
         myWall.push_back(w);
     }
+    for(int i=0;i<7;i++)
+    {
+        Wall* w=new Wall(30+30*i,390,30,30,1,this,100);
+        myWall.push_back(w);
+    }
+    for(int i=0;i<7;i++)
+    {
+        Wall* w=new Wall(30+30*i,390,30,30,1,this,100);
+        myWall.push_back(w);
+    }
+    for(int i=0;i<6;i++)
+    {
+        Wall* w=new Wall(360+30*i,390,30,30,1,this,100);
+        myWall.push_back(w);
+    }
+    for(int i=0;i<4;i++)
+    {
+        for(int j=0;j<16;j++)
+        {
+        Wall* w=new Wall(640-30*i,450-30*j,30,30,3,this,100);
+        myWall.push_back(w);
+        }
+    }
+
+
     {
      Wall* w=new Wall(120,120,30,30,0,this,100);
      myWall.push_back(w);
     }
     {
-     Wall* w=new Wall(380,120,30,30,0,this,100);
+     Wall* w=new Wall(360,120,30,30,0,this,100);
      myWall.push_back(w);
     }
-    {
-     Wall* w=new Wall(380,390,30,30,0,this,100);
-     myWall.push_back(w);
-    }
+
 }
 
 void MainWindow::pressStart()

@@ -250,7 +250,7 @@ void Tank::init()
     Wall::wallImgs.push_back(QImage(":images/wall2.bmp"));
     Wall::wallImgs.push_back(QImage(":images/wall3.bmp"));
 
-    MainWindow::logoImgs.push_back(QImage(":images/logo.gif"));
+    MainWindow::logoImgs.push_back(QImage(":images/logo.jpg"));
     MainWindow::logoImgs.push_back(QImage(":images/gameover.png"));
     MainWindow::logoImgs.push_back(QImage(":images/victory.png"));
 }

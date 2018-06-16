@@ -12,7 +12,6 @@
         <file>9.gif</file>
         <file>10.gif</file>
         <file>gameover.png</file>
-        <file>logo.gif</file>
         <file>missileD.gif</file>
         <file>missileL.gif</file>
         <file>missileLD.gif</file>
@@ -34,5 +33,6 @@
         <file>wall1.bmp</file>
         <file>wall2.bmp</file>
         <file>wall3.bmp</file>
+        <file>logo.jpg</file>
     </qresource>
 </RCC>

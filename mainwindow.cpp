@@ -92,7 +92,7 @@ void MainWindow::paintEvent(QPaintEvent *)
             p.drawImage(140,400-3*step,logoImgs[2]);
         }
         else
-        p.drawImage(140,400-3*step,MainWindow::logoImgs[0]);
+        p.drawImage(70,400-3*step,MainWindow::logoImgs[0]);
         step++;
         if(step>=80)step=80;
         if(gameover||victory)

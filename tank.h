@@ -18,13 +18,13 @@ public:
     void moveTank();
     void fire();
     void fire(Dir tdir);
-    void superfire();//żŞ´óŐĐ
+    void superfire();
 
-    bool TankHitWall(Wall* w); //Ľě˛âĚążËşÍÇ˝±ÚĘÇ·ńĹö×˛
+    bool TankHitWall(Wall* w);
     void TankHitWalls(QList<Wall*> ws);
 
     static void init();
-    inline QRect getRect(){return QRect(x,y,w,h);}//»ńµĂ×ÔÉíĎŕ˝»µÄľŘĐÎ
+    inline QRect getRect(){return QRect(x,y,w,h);}
 
     int x,y,w,h;
     bool BU,BD,BL,BR;
@@ -34,9 +34,9 @@ public:
     bool good;
     bool live;
     int step;
-    int xtemp,ytemp;//ÓĂÓÚĽÇÂĽĚążËÉĎ´ÎµÄÎ»ÖĂ
+    int xtemp,ytemp;
     int liveValue;
-    int count;//ĽÇÂĽ´óŐĐ´ÎĘý
+    int count;
     static QList<QImage> tankImgs;
 
 };

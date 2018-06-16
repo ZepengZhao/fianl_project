@@ -7,6 +7,7 @@
 #include "wall.h"
 #include<QPushButton>
 #include <QImage>
+
 QList<QImage> Tank::tankImgs;
 Tank::Tank(int x,int y,int w,int h,MainWindow* tc,bool good,int liveValue)
 {
@@ -48,11 +49,11 @@ void Tank::drawTank(QPainter &p)
         case RD: p.drawImage(x,y,tankImgs[7]);break;
         default:break;
     }
-    p.setPen(Qt::yellow);
+
     p.setBrush(Qt::black);
     p.drawRect(x,y,33,5);
-
-    p.setBrush(Qt::red);
+    //if(this == mytank)
+    p.setBrush(Qt::green);
     p.drawRect(x,y,liveValue/3,5);
 
     moveTank();
@@ -68,13 +69,6 @@ void Tank::keyPress(int key)
         case Qt::Key_A: BL=true;break;
         case Qt::Key_D: BR=true;break;
         case Qt::Key_J: fire();break;
-        case Qt::Key_K:
-            {
-                if(count>0)superfire();
-                count--;
-                if(count<=0)count=0;
-                break;
-            }
 
         case Qt::Key_F2:
             {
@@ -102,7 +96,7 @@ void Tank::keyPress(int key)
                 break;
             }
 
-        case Qt::Key_Escape:exit(0);break;//НЛіцУОП·
+        case Qt::Key_Escape:exit(0);break;
         default:break;
     }
     if(BU&&!BD&&!BL&&!BR)dir=U;
@@ -132,11 +126,13 @@ void Tank::keyRelease(int key)
     else if(!BU&&!BD&&BL&&!BR)dir=L;
     else if(!BU&&!BD&&!BL&&BR)dir=R;
 
+
     else if(BU&&!BD&&BL&&!BR)dir=LU;
     else if(!BU&&BD&&BL&&!BR)dir=LD;
     else if(BU&&!BD&&!BL&&BR)dir=RU;
     else if(!BU&&BD&&!BL&&BR)dir=RD;
     else dir=STOP;
+
 }
 void Tank::moveTank()
 {
@@ -149,16 +145,18 @@ void Tank::moveTank()
         case L: x-=5;break;
         case R: x+=5;break;
 
+
         case LU: x-=5;y-=5;break;
         case LD: x-=5;y+=5;break;
         case RU: x+=5;y-=5;break;
         case RD: x+=5;y+=5;break;
+
         default:break;
     }
     if(x<=0)x=0;
     if(y<=0)y=0;
-    if(x>=MainWindow::GAME_WIDTH-w)x=MainWindow::GAME_WIDTH-w;
-    if(y>=MainWindow::GAME_HEIGHT-h)y=MainWindow::GAME_HEIGHT-h;
+    if(x>=640-w)x=640-w;
+    if(y>=480-h)y=480-h;
     if(!good)
     {
         if(qrand()%20>18)fire();
@@ -189,11 +187,7 @@ void  Tank::fire(Dir tdir)
     Missile* m=new Missile(mx,my,mw,mh,tdir,tc,good);
     tc->missile.push_back(m);
 }
-void  Tank::superfire()
-{
-    for(int i=0;i<8;i++)
-        fire(Dir(i));
-}
+
 
 bool Tank::TankHitWall(Wall* w)
 {
@@ -210,7 +204,7 @@ void Tank::TankHitWalls(QList<Wall*> ws)
 {
     for(int i=0;i<ws.size();i++)
     {
-        if(TankHitWall(ws[i]))
+        if(TankHitWall(ws[i])&&(ws[i]->choose)==0)
             return;
     }
 }

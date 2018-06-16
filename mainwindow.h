@@ -23,8 +23,8 @@ public:
     void AllObject();
 
 
-    static const int GAME_WIDTH=640;
-    static const int GAME_HEIGHT=480;
+    //static const int GAME_WIDTH=640;
+   // static const int GAME_HEIGHT=480;
 
     bool start;
     bool gameover,victory;

@@ -18,7 +18,6 @@ public:
     void moveTank();
     void fire();
     void fire(Dir tdir);
-    void superfire();
 
     bool TankHitWall(Wall* w);
     void TankHitWalls(QList<Wall*> ws);

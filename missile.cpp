@@ -44,7 +44,7 @@ void Missile::moveMissile()
         case RD: x+=15;y+=15;break;
         default:break;
     }
-    if(x<=0||y<=0||x>=MainWindow::GAME_WIDTH||y>=MainWindow::GAME_HEIGHT)live=false;
+    if(x<=0||y<=0||x>=640||y>=480)live=false;
 }
 bool Missile::hitTank(Tank* t)
 {

@@ -10,13 +10,13 @@ QList<QImage> MainWindow::logoImgs;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    step=0;
+   // step=0;
     start=false;
     gameover=false;
     victory=false;
     Tank::init();
     setWindowTitle(tr("̹tank war"));
-    setFixedSize(GAME_WIDTH,GAME_HEIGHT);
+    setFixedSize(640,480);
 
     move(100,100);
     AllObject();
@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(button[1],SIGNAL(clicked()),this,SLOT(pressStart()));
     connect(button[2],SIGNAL(clicked()),this,SLOT(close()));
 
-    startTimer(30);
+    startTimer(40);
 }
 
 void MainWindow::paintEvent(QPaintEvent *)
@@ -74,25 +74,25 @@ void MainWindow::paintEvent(QPaintEvent *)
         {
             start=false;
             gameover=true;
-            step=0;
+
         }
         if(etanks.size()==0)
         {
             start=false;
             victory=true;
-            step=0;
+
         }
     }
     else
     {
         if(gameover)
-        p.drawImage(140,400-3*step,logoImgs[1]);
+        p.drawImage(140,150,logoImgs[1]);
         else if(victory)
         {
-            p.drawImage(140,400-3*step,logoImgs[2]);
+            p.drawImage(140,150,logoImgs[2]);
         }
         else
-        p.drawImage(70,400-3*step,MainWindow::logoImgs[0]);
+        p.drawImage(70,150,MainWindow::logoImgs[0]);
         step++;
         if(step>=80)step=80;
         if(gameover||victory)

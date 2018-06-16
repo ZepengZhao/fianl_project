@@ -20,7 +20,7 @@ public:
     void hitTanks(QList<Tank*> ts);
     bool hitWall(Wall* w);
     void hitWalls(QList<Wall*> ws);
-    inline QRect getRect(){return QRect(x,y,w,h);}//»ńµĂ×ÔÉíĎŕ˝»µÄľŘĐÎ
+    inline QRect getRect(){return QRect(x,y,w,h);}
 
     int x,y,w,h;
     Dir dir;
@@ -28,7 +28,6 @@ public:
     MainWindow* tc;
     bool good;
 
-    QImage missileImgs;
-
+    QImage* missileImgs = new QImage(":images/dot.jpg");
 };
 #endif // MISSILE_H

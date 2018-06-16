@@ -21,7 +21,7 @@ public:
     void keyPressEvent(QKeyEvent *e);
     void keyReleaseEvent(QKeyEvent *e);
     void AllObject();
-    //~MainWindow（）;
+
 
     static const int GAME_WIDTH=640;
     static const int GAME_HEIGHT=480;

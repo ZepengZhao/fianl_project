@@ -226,17 +226,6 @@ void Tank::init()
     tankImgs.push_back(QImage(":images/tRU.gif"));
     tankImgs.push_back(QImage(":images/tRD.gif"));
 
-    Missile::missileImgs(QImage(":images/dot.jpg"));
-    /*
-    Missile::missileImgs.push_back(QImage(":images/missileU.gif"));
-    Missile::missileImgs.push_back(QImage(":images/missileD.gif"));
-    Missile::missileImgs.push_back(QImage(":images/missileL.gif"));
-    Missile::missileImgs.push_back(QImage(":images/missileR.gif"));
-    Missile::missileImgs.push_back(QImage(":images/missileLU.gif"));
-    Missile::missileImgs.push_back(QImage(":images/missileLD.gif"));
-    Missile::missileImgs.push_back(QImage(":images/missileRU.gif"));
-    Missile::missileImgs.push_back(QImage(":images/missileRD.gif"));
-    */
     Explode::explodeImgs.push_back(QImage(":images/0.gif"));
     Explode::explodeImgs.push_back(QImage(":images/1.gif"));
     Explode::explodeImgs.push_back(QImage(":images/2.gif"));

@@ -5,7 +5,6 @@
 #include "tank.h"
 #include "explode.h"
 #include "wall.h"
-QList<QImage> Missile::missileImgs;
 
 Missile::Missile(int x,int y,int w,int h,Dir dir,MainWindow* tc,bool good)
 {
@@ -26,7 +25,7 @@ void Missile::drawMissile(QPainter &p)
         tc->missile.removeOne(this);
         return ;
     }
-    p.drawImage(x,y,missileImgs[0]);
+    p.drawImage(x,y,*missileImgs);
     moveMissile();
 }
 

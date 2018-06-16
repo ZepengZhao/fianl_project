@@ -190,7 +190,6 @@ void MainWindow::AllObject()
         }
     }
 
-
     {
      Wall* w=new Wall(120,120,30,30,0,this,100);
      myWall.push_back(w);
@@ -204,12 +203,26 @@ void MainWindow::AllObject()
 
 void MainWindow::pressStart()
 {
-     mytank->keyPress(Qt::Key_F2);
+    start=!start;
+    if(!(start))
+    {
+        button[1]->setText(QObject::tr("јМРшУОП·"));
+    }
+
 }
 
 void MainWindow::pressRestart()
 {
-   mytank->keyPress(Qt::Key_F1);
+    while(missile.size())
+        missile.removeOne(missile[0]);
+    while(etanks.size())
+        etanks.removeOne(etanks[0]);
+    while(myWall.size())
+        myWall.removeOne(myWall[0]);
+    AllObject();
+    start=true;
+    gameover=false;
+
 }
 
 

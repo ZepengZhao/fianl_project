@@ -77,33 +77,6 @@ void Tank::keyPress(int key)
         case Qt::Key_D: BR=true;break;
         case Qt::Key_J: fire();break;
 
-        case Qt::Key_F2:
-            {
-
-                tc->start=!tc->start;
-                if(!(tc->start))
-                {
-                    tc->button[1]->setText(QObject::tr("јМРшУОП·"));
-                }
-                break;
-
-            }
-        case Qt::Key_F1:
-            {
-
-                while(tc->missile.size())
-                    tc->missile.removeOne(tc->missile[0]);
-                while(tc->etanks.size())
-                    tc->etanks.removeOne(tc->etanks[0]);
-                while(tc->myWall.size())
-                    tc->myWall.removeOne(tc->myWall[0]);
-                tc->AllObject();
-                tc->start=true;
-                tc->gameover=false;
-                break;
-            }
-
-        case Qt::Key_Escape:exit(0);break;
         default:break;
     }
     if(BU&&!BD&&!BL&&!BR)dir=U;

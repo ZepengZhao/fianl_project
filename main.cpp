@@ -1,4 +1,3 @@
-#include<QApplicationStateChangeEvent>
 #include<QApplication>
 #include "mainwindow.h"
 #include "qtextcodec.h"

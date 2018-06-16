@@ -26,19 +26,7 @@ void Missile::drawMissile(QPainter &p)
         tc->missile.removeOne(this);
         return ;
     }
-    switch(dir)
-    {
-        case U: p.drawImage(x,y,missileImgs[0]);break;
-        case D: p.drawImage(x,y,missileImgs[1]);break;
-        case L: p.drawImage(x,y,missileImgs[2]);break;
-        case R: p.drawImage(x,y,missileImgs[3]);break;
-
-        case LU: p.drawImage(x,y,missileImgs[4]);break;
-        case LD: p.drawImage(x,y,missileImgs[5]);break;
-        case RU: p.drawImage(x,y,missileImgs[6]);break;
-        case RD: p.drawImage(x,y,missileImgs[7]);break;
-        default:break;
-    }
+    p.drawImage(x,y,missileImgs[0]);
     moveMissile();
 }
 
@@ -68,7 +56,7 @@ bool Missile::hitTank(Tank* t)
         if( t->liveValue==0)
         {
             t->live=false;
-            Explode* e=new Explode(x,y,tc);//´´˝¨±¬Ő¨¶ÔĎó
+            Explode* e=new Explode(x,y,tc);
             tc->explodes.push_back(e);
             return true;
         }

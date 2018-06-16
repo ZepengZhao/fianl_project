@@ -34,5 +34,7 @@
         <file>wall2.bmp</file>
         <file>wall3.bmp</file>
         <file>logo.jpg</file>
+        <file>InkedmissileD.gif</file>
+        <file>dot.jpg</file>
     </qresource>
 </RCC>

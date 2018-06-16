@@ -28,7 +28,7 @@ public:
     MainWindow* tc;
     bool good;
 
-    static QList<QImage> missileImgs;
+    QImage missileImgs;
 
 };
 #endif // MISSILE_H

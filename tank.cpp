@@ -75,6 +75,7 @@ void Tank::keyPress(int key)
                 if(count<=0)count=0;
                 break;
             }
+
         case Qt::Key_F2:
             {
                 tc->step=0;
@@ -100,6 +101,7 @@ void Tank::keyPress(int key)
                 tc->gameover=false;
                 break;
             }
+
         case Qt::Key_Escape:exit(0);break;//НЛіцУОП·
         default:break;
     }
@@ -224,6 +226,8 @@ void Tank::init()
     tankImgs.push_back(QImage(":images/tRU.gif"));
     tankImgs.push_back(QImage(":images/tRD.gif"));
 
+    Missile::missileImgs(QImage(":images/dot.jpg"));
+    /*
     Missile::missileImgs.push_back(QImage(":images/missileU.gif"));
     Missile::missileImgs.push_back(QImage(":images/missileD.gif"));
     Missile::missileImgs.push_back(QImage(":images/missileL.gif"));
@@ -232,7 +236,7 @@ void Tank::init()
     Missile::missileImgs.push_back(QImage(":images/missileLD.gif"));
     Missile::missileImgs.push_back(QImage(":images/missileRU.gif"));
     Missile::missileImgs.push_back(QImage(":images/missileRD.gif"));
-
+    */
     Explode::explodeImgs.push_back(QImage(":images/0.gif"));
     Explode::explodeImgs.push_back(QImage(":images/1.gif"));
     Explode::explodeImgs.push_back(QImage(":images/2.gif"));

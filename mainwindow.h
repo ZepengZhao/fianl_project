@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTime>
 #include "tank.h"
 #include "missile.h"
 #include <QImage>
@@ -34,11 +35,10 @@ public:
     QList<QPushButton*> button;
 
     static QList<QImage> logoImgs;
-    //int step;
 
 private slots:
-    void pressStart();
-    void pressRestart();
+    void Start();
+    void Restart();
 
 };
 

@@ -29,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
     button[0]->setGeometry(75,360,130,50);
     button[1]->setGeometry(255,360,130,50);
     button[2]->setGeometry(435,360,130,50);
-    connect(button[0],SIGNAL(clicked()),this,SLOT(pressRestart()));
-    connect(button[1],SIGNAL(clicked()),this,SLOT(pressStart()));
+    connect(button[0],SIGNAL(clicked()),this,SLOT(Restart()));
+    connect(button[1],SIGNAL(clicked()),this,SLOT(Start()));
     connect(button[2],SIGNAL(clicked()),this,SLOT(close()));
 
     startTimer(25);
@@ -87,10 +87,10 @@ void MainWindow::paintEvent(QPaintEvent *)
     else
     {
         if(gameover)
-        p.drawImage(140,150,logoImgs[1]);
+        p.drawImage(140,30,logoImgs[1]);
         else if(victory)
         {
-            p.drawImage(140,150,logoImgs[2]);
+            p.drawImage(140,30,logoImgs[2]);
         }
         else
         p.drawImage(70,0,logoImgs[0]);
@@ -120,15 +120,6 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
 {
    if(mytank->live)
     mytank->keyPress(e->key());
-   else
-   {
-       switch(e->key())
-       {
-           case Qt::Key_F1: mytank->keyPress(Qt::Key_F1);break;
-           case Qt::Key_Escape: mytank->keyPress(Qt::Key_Escape);break;
-           default: break;
-       }
-   }
 }
 void MainWindow::keyReleaseEvent(QKeyEvent *e)
 {
@@ -138,7 +129,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *e)
 void MainWindow::AllObject()
 {
     mytank=new Tank(300,450,30,30,this,true,100);
-    for(int i=0;i<8;i++)
+    for(int i=0;i<7;i++)
     {
         Tank* t=new Tank(40+50*i,20,30,30,this,false,100);
         etanks.push_back(t);
@@ -166,12 +157,8 @@ void MainWindow::AllObject()
         Wall* w=new Wall(210+30*i,390,30,30,0,this,100);
         myWall.push_back(w);
     }
-    for(int i=0;i<7;i++)
-    {
-        Wall* w=new Wall(30+30*i,390,30,30,1,this,100);
-        myWall.push_back(w);
-    }
-    for(int i=0;i<7;i++)
+
+    for(int i=0;i<6;i++)
     {
         Wall* w=new Wall(30+30*i,390,30,30,1,this,100);
         myWall.push_back(w);
@@ -201,17 +188,13 @@ void MainWindow::AllObject()
 
 }
 
-void MainWindow::pressStart()
+void MainWindow::Start()
 {
-    start=!start;
-    if(!(start))
-    {
-        button[1]->setText(QObject::tr("јМРшУОП·"));
-    }
-
+    start=true;
+     gameover=false;
 }
 
-void MainWindow::pressRestart()
+void MainWindow::Restart()
 {
     while(missile.size())
         missile.removeOne(missile[0]);

@@ -7,6 +7,7 @@
 #include "wall.h"
 #include<QPushButton>
 #include <QImage>
+#include <QTime>
 
 QList<QImage> Tank::tankImgs;
 Tank::Tank(int x,int y,int w,int h,MainWindow* tc,bool good,int liveValue)
@@ -62,8 +63,6 @@ void Tank::drawTank(QPainter &p)
         p.setBrush(Qt::green);
         p.drawRect(x,y,liveValue/3,5);
     }
-
-    moveTank();
 }
 
 
@@ -114,25 +113,66 @@ void Tank::keyRelease(int key)
     else dir=STOP;
 
 }
-void Tank::moveTank()
+
+
+bool Tank::TankHitWall(Wall* w)
+{
+    if(live&&getRect().intersects(w->getRect())&&(w->choose==0||w->choose==1))
+    {
+        x=xtemp;
+        y=ytemp;
+    }
+    if(live&&getRect().intersects(w->getRect())&&w->choose==2)
+    {
+       // moveTank(5);
+       return true;
+
+
+    }
+    if(live&&getRect().intersects(w->getRect())&&w->choose==3)
+    {
+
+        return true;
+
+    }
+
+   return false;
+
+}
+
+void Tank::TankHitWalls(QList<Wall*> ws)
+{
+    moveTank(5);
+    for(int i=0;i<ws.size();i++)
+    {
+        if(TankHitWall(ws[i]))
+        {
+           return;
+        }
+    }
+}
+
+void Tank::moveTank(int speed)
 {
     xtemp=x;
     ytemp=y;
+
     switch(dir)
     {
-        case U: y-=5;break;
-        case D: y+=5;break;
-        case L: x-=5;break;
-        case R: x+=5;break;
+        case U: y-=speed;break;
+        case D: y+=speed;break;
+        case L: x-=speed;break;
+        case R: x+=speed;break;
 
 
-        case LU: x-=5;y-=5;break;
-        case LD: x-=5;y+=5;break;
-        case RU: x+=5;y-=5;break;
-        case RD: x+=5;y+=5;break;
+        case LU: x-=speed;y-=speed;break;
+        case LD: x-=speed;y+=speed;break;
+        case RU: x+=speed;y-=speed;break;
+        case RD: x+=speed;y+=speed;break;
 
         default:break;
     }
+
     if(x<=0)x=0;
     if(y<=0)y=0;
     if(x>=640-w)x=640-w;
@@ -169,25 +209,6 @@ void  Tank::fire(Dir tdir)
 }
 
 
-bool Tank::TankHitWall(Wall* w)
-{
-
-    if(live&&getRect().intersects(w->getRect())&&(w->choose==0||w->choose==1))
-    {
-        x=xtemp;
-        y=ytemp;
-        return true;
-    }
-    return false;
-}
-void Tank::TankHitWalls(QList<Wall*> ws)
-{
-    for(int i=0;i<ws.size();i++)
-    {
-        if(TankHitWall(ws[i]))
-            return;
-    }
-}
 
 void Tank::init()
 {

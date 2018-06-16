@@ -15,7 +15,7 @@ public:
     void drawTank(QPainter &p);
     void keyRelease(int key);
     void keyPress(int key);
-    void moveTank();
+    void moveTank(int speed);
     void fire();
     void fire(Dir tdir);
 

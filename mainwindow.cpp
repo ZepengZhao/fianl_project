@@ -10,30 +10,38 @@ QList<QImage> MainWindow::logoImgs;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    mainmenu=true;
     start=false;
     gameover=false;
     victory=false;
+    guideline = false;
     Tank::init();
-    setWindowTitle(tr("̹tank war"));
+    setWindowTitle("̹tank war");
     setFixedSize(640,480);
-
-    move(100,100);
     AllObject();
 
-    QPushButton* restartGame=new QPushButton(tr("restart game"),this);
+    QPushButton* restartGame=new QPushButton("restart game",this);
     button.push_back(restartGame);
-    QPushButton* startGame=new QPushButton(tr("start game"),this);
+    QPushButton* startGame=new QPushButton("start game",this);
     button.push_back(startGame);
-    QPushButton* exitGame=new QPushButton(tr("exit"),this);
+    QPushButton* exitGame=new QPushButton("exit",this);
     button.push_back(exitGame);
+    QPushButton* guideline=new QPushButton("guideline",this);
+    button.push_back(guideline);
+    QPushButton* mainmenu=new QPushButton("mainmenu",this);
+    button.push_back(mainmenu);
     button[0]->setGeometry(75,360,130,50);
     button[1]->setGeometry(255,360,130,50);
     button[2]->setGeometry(435,360,130,50);
+    button[3]->setGeometry(75,360,130,50);
+    button[4]->setGeometry(255,360,130,50);
     connect(button[0],SIGNAL(clicked()),this,SLOT(Restart()));
     connect(button[1],SIGNAL(clicked()),this,SLOT(Start()));
     connect(button[2],SIGNAL(clicked()),this,SLOT(close()));
+    connect(button[3],SIGNAL(clicked()),this,SLOT(Guideline()));
+    connect(button[4],SIGNAL(clicked()),this,SLOT(Mainmenu()));
 
-    startTimer(25);
+    startTimer(30);
 }
 
 void MainWindow::paintEvent(QPaintEvent *)
@@ -89,25 +97,35 @@ void MainWindow::paintEvent(QPaintEvent *)
         if(gameover)
         p.drawImage(140,30,logoImgs[1]);
         else if(victory)
-        {
-            p.drawImage(140,30,logoImgs[2]);
-        }
-        else
+        p.drawImage(140,30,logoImgs[2]);
+        else if(mainmenu)
         p.drawImage(70,0,logoImgs[0]);
+        else;
 
         if(gameover||victory)
         {
+            button[4]->setGeometry(255,360,130,50);
             button[0]->show();
             button[1]->hide();
             button[2]->show();
+            button[3]->hide();
+            button[4]->show();
         }
-        else
+
+        else if(mainmenu)
         {
-            for(int i=0;i<button.size();i++)
-            {
-                button[i]->show();
-            }
+            button[4]->setGeometry(255,360,130,50);
+            button[0]->hide();
+            button[1]->show();
+            button[2]->show();
+            button[3]->show();
+            button[4]->hide();
         }
+        else if(guideline)
+        {
+            button[4]->setGeometry(75,360,130,50);
+        }
+
     }
 }
 
@@ -144,7 +162,7 @@ void MainWindow::AllObject()
     }
     for(int i=1;i<20;i++)
     {
-        Wall* w=new Wall(30*i,330,30,30,2,this,100);
+        Wall* w=new Wall(30*i,300,30,30,2,this,100);
         myWall.push_back(w);
     }
     for(int i=0;i<18;i++)
@@ -178,20 +196,53 @@ void MainWindow::AllObject()
     }
 
     {
-     Wall* w=new Wall(120,120,30,30,0,this,100);
-     myWall.push_back(w);
+        Wall* w=new Wall(120,120,30,30,0,this,100);
+        myWall.push_back(w);
     }
     {
-     Wall* w=new Wall(360,120,30,30,0,this,100);
-     myWall.push_back(w);
+        Wall* w=new Wall(360,120,30,30,0,this,100);
+        myWall.push_back(w);
     }
 
 }
 
+void MainWindow::Guideline()
+{
+    start =false;
+    gameover= false;
+    mainmenu = false;
+    victory = false;
+    guideline= true;
+    button[0]->hide();
+    button[1]->show();
+    button[2]->show();
+    button[3]->hide();
+    button[4]->show();
+}
+
+void MainWindow::Mainmenu()
+{
+    start =false;
+    gameover= false;
+    mainmenu = true;
+    victory = false;
+    guideline= false;
+}
+
 void MainWindow::Start()
 {
+    while(missile.size())
+        missile.removeOne(missile[0]);
+    while(etanks.size())
+        etanks.removeOne(etanks[0]);
+    while(myWall.size())
+        myWall.removeOne(myWall[0]);
+    AllObject();
+    mainmenu= false;
     start=true;
-     gameover=false;
+    gameover=false;
+    victory = false;
+    guideline= false;
 }
 
 void MainWindow::Restart()
@@ -203,8 +254,11 @@ void MainWindow::Restart()
     while(myWall.size())
         myWall.removeOne(myWall[0]);
     AllObject();
+    mainmenu= false;
     start=true;
     gameover=false;
+    victory = false;
+    guideline= false;
 
 }
 

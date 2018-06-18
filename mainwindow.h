@@ -24,9 +24,11 @@ public:
     void AllObject();
 
 
-
+    bool mainmenu;
     bool start;
-    bool gameover,victory;
+    bool gameover;
+    bool victory;
+    bool guideline;
     Tank* mytank;
     QList<Missile*> missile;
     QList<Tank*> etanks;
@@ -37,9 +39,10 @@ public:
     static QList<QImage> logoImgs;
 
 private slots:
+    void Guideline();
     void Start();
     void Restart();
-
+    void Mainmenu();
 };
 
 #endif

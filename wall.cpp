@@ -23,13 +23,13 @@ void Wall::drawWall(QPainter &p)
         return;
     }
 
-    if(choose==1)
+    if(choose==0)
     {
-        p.drawImage(x,y,Wall::wallImgs[1]);
+        p.drawImage(x,y,Wall::wallImgs[0]);
     }
-    else if(choose==0)
+    else if(choose==1)
     {
-       p.drawImage(x,y,Wall::wallImgs[0]);
+       p.drawImage(x,y,Wall::wallImgs[1]);
     }
     else if(choose==2)
     {

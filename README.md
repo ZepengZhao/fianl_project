@@ -14,15 +14,20 @@ It is somehow troublesome to make different directions of the tank and the diffe
 diffculty for me. My favorite design is setting the wall(block) since I have a feeling that I'm actual designing. 
 
 My design is like below:
+
 W-up                                          
 S-down                                     
 A-left                                           
 D-right                                         
 J-fire                        
 Solid Wall-- can't be destroyed
+
 Wood block--can be destroyed 
+
 Bush—can hide tank 
+
 Water—can hide tank(same as Bush) 
+
 (This documention can be found in the game)
 
 What I should improve is that I didn't make "tank hit tank"(that mean a tank can go through other tanks).Actully, I tried to fix this, but

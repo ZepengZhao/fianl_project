@@ -117,6 +117,7 @@ void Tank::keyRelease(int key)
 
 bool Tank::TankHitWall(Wall* w)
 {
+
     if(live&&getRect().intersects(w->getRect())&&(w->choose==0||w->choose==1))
     {
         x=xtemp;
@@ -131,9 +132,7 @@ bool Tank::TankHitWall(Wall* w)
     }
     if(live&&getRect().intersects(w->getRect())&&w->choose==3)
     {
-
         return true;
-
     }
 
    return false;
@@ -149,6 +148,15 @@ void Tank::TankHitWalls(QList<Wall*> ws)
         {
            return;
         }
+    }
+}
+
+void Tank::TankHitTank(Tank* tank)
+{
+    if(live&&getRect().intersects(tank->getRect()))
+    {
+        x=xtemp;
+        y=ytemp;
     }
 }
 
@@ -207,8 +215,6 @@ void  Tank::fire(Dir tdir)
     Missile* m=new Missile(mx,my,mw,mh,tdir,tc,good);
     tc->missile.push_back(m);
 }
-
-
 
 void Tank::init()
 {

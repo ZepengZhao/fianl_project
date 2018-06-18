@@ -21,7 +21,7 @@ public:
 
     bool TankHitWall(Wall* w);
     void TankHitWalls(QList<Wall*> ws);
-
+    void TankHitTank(Tank* tank);
     static void init();
     inline QRect getRect(){return QRect(x,y,w,h);}
 

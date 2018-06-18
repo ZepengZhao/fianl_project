@@ -62,12 +62,17 @@ void MainWindow::paintEvent(QPaintEvent *)
             missile[i]->hitWalls(myWall);
             missile[i]->drawMissile(p);
         }
+
         mytank->TankHitWalls(myWall);
+
         mytank->drawTank(p);
         for(int i=0;i<etanks.size();i++)
         {
            etanks[i]->TankHitWalls(myWall);
+           etanks[i]->TankHitTank(mytank);
             etanks[i]->drawTank(p);
+            mytank->TankHitTank(etanks[i]);
+
         }
         for(int i=0;i<explodes.size();i++)
         {
@@ -203,7 +208,7 @@ void MainWindow::AllObject()
         Wall* w=new Wall(360,120,30,30,0,this,100);
         myWall.push_back(w);
     }
-
+    \
 }
 
 void MainWindow::Guideline()

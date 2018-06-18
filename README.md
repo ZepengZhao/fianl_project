@@ -32,6 +32,7 @@ Water—can hide tank(same as Bush)
 
 What I should improve is that I didn't make "tank hit tank"(that mean a tank can go through other tanks).Actully, I tried to fix this, but
 a run-time error occured. :(
+
 Also, I didn't provide any destructor.(I try to fix this but there are lot of error) :(
 
 Thank you for the whole quarter teaching!

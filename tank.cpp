@@ -151,15 +151,6 @@ void Tank::TankHitWalls(QList<Wall*> ws)
     }
 }
 
-void Tank::TankHitTank(Tank* tank)
-{
-    if(live&&getRect().intersects(tank->getRect()))
-    {
-        x=xtemp;
-        y=ytemp;
-    }
-}
-
 void Tank::moveTank(int speed)
 {
     xtemp=x;
@@ -247,4 +238,5 @@ void Tank::init()
     MainWindow::logoImgs.push_back(QImage(":images/logo.jpg"));
     MainWindow::logoImgs.push_back(QImage(":images/gameover.png"));
     MainWindow::logoImgs.push_back(QImage(":images/victory.png"));
+    MainWindow::logoImgs.push_back(QImage(":images/guideline.JPG"));
 }

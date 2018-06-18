@@ -69,9 +69,8 @@ void MainWindow::paintEvent(QPaintEvent *)
         for(int i=0;i<etanks.size();i++)
         {
            etanks[i]->TankHitWalls(myWall);
-           etanks[i]->TankHitTank(mytank);
+
             etanks[i]->drawTank(p);
-            mytank->TankHitTank(etanks[i]);
 
         }
         for(int i=0;i<explodes.size();i++)
@@ -105,7 +104,11 @@ void MainWindow::paintEvent(QPaintEvent *)
         p.drawImage(140,30,logoImgs[2]);
         else if(mainmenu)
         p.drawImage(70,0,logoImgs[0]);
-        else;
+        else if(guideline)
+        p.drawImage(70,30,logoImgs[3]);
+
+
+
 
         if(gameover||victory)
         {

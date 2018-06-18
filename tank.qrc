@@ -27,5 +27,6 @@
         <file>wall3.bmp</file>
         <file>logo.jpg</file>
         <file>dot.jpg</file>
+        <file>guideline.JPG</file>
     </qresource>
 </RCC>
